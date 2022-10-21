@@ -34,10 +34,17 @@ describe('Liking A Restaurant', () => {
 
   it('should not add a restaurant again when its already liked', async () => {
     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
-
     await FavoriteRestaurantIdb.putRestaurant({ id: 1 });
+
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
     expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([{ id: 1 }]);
     FavoriteRestaurantIdb.deleteRestaurant(1);
+  });
+
+  it('should not add a restaurant when it has no id', async () => {
+    await TestFactories.createLikeButtonPresenterWithRestaurant({});
+
+    document.querySelector('#likeButton').dispatchEvent(new Event('click'));
+    expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([]);
   });
 });
