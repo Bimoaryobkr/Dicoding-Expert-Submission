@@ -1,6 +1,13 @@
 @media screen and (max-width: 450px) {
     .hero {
+        min-height: 300px;
         background: url('/images/hero-image_4-small.jpg');
+    }
+}
+
+@media screen and (min-width: 451px) {
+    .hero {
+        background: url('/images/hero-image_4-large.jpg');
     }
 }
 
@@ -104,12 +111,6 @@
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 10px;
         grid-row-gap: 15px;
-    }
-}
-
-@media screen and (max-width: 850px) {
-    .hero {
-        background: url('/images/hero-image_4-large.jpg');
     }
 }
 
